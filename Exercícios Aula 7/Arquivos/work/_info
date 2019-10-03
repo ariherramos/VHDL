@@ -1,0 +1,129 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/Aluno/Music/DanielHCSouza/VHDL_DanSouza/EX07_Arquivos
+Earquivo_in
+Z0 w1525704884
+Z1 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z4 dC:/eclipse/home/workspace/Arquivos
+Z5 8arquivo_in.vhd
+Z6 Farquivo_in.vhd
+l0
+L5
+V@fNTm30V6n>2CBdD3S4Rz1
+!s100 YokGmKEn1bklaVligVBU>1
+Z7 OV;C;10.3d;59
+32
+Z8 !s110 1540181945
+!i10b 1
+Z9 !s108 1540181945.289000
+Z10 !s90 -reportprogress|300|arquivo_out.vhd|arquivo_in.vhd|testbench_arquivo.vhd|
+Z11 !s107 testbench_arquivo.vhd|arquivo_in.vhd|arquivo_out.vhd|
+!i113 1
+Z12 tExplicit 1
+Artl
+R1
+R2
+R3
+Z13 DEx4 work 10 arquivo_in 0 22 @fNTm30V6n>2CBdD3S4Rz1
+l12
+L11
+Z14 VXD16J;J]B7akKZi3;:_6<0
+Z15 !s100 C>Ulg5KgnMiTPc5^<IeVT0
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+Earquivo_out
+Z16 w1540181782
+R1
+R2
+R3
+R4
+Z17 8arquivo_out.vhd
+Z18 Farquivo_out.vhd
+l0
+L5
+V@=JNc;o4_3T2Xa3F3Dg851
+!s100 :D8iNT846ceZI5=X0MjR63
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+Artl
+R1
+R2
+R3
+DEx4 work 11 arquivo_out 0 22 @=JNc;o4_3T2Xa3F3Dg851
+l11
+L9
+V=]z;Wo3iQN=>58Pn7W;=`2
+!s100 12c<2V`_aoI`=l0WCc<LE1
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+Etestbench_arquivo
+Z19 w1540181868
+Z20 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z21 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+R2
+R3
+R4
+Z22 8testbench_arquivo.vhd
+Z23 Ftestbench_arquivo.vhd
+l0
+L6
+VSgJTj1jeOnU@9GDTI4TiE3
+!s100 D7Haz89?iGR<=McMJ9?;U1
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+Astimulus
+R20
+R21
+R2
+R3
+Z24 DEx4 work 17 testbench_arquivo 0 22 SgJTj1jeOnU@9GDTI4TiE3
+l23
+L9
+VfJoW=[CV<b>SNW`_cSO=E1
+!s100 M^H[B@aG]2Xd=PZo@VWTH2
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12

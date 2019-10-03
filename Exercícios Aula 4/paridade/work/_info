@@ -1,0 +1,112 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/eclipse/home/workspace/paridade
+Emux
+w1535980562
+Z1 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z2 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z5 8paridade.vhd
+Z6 Fparidade.vhd
+l0
+L15
+VKJgYYFQBdRcAZ5;ZG;bj>1
+!s100 H6X8l:1MbMB_A?MgGZiOd3
+Z7 OV;C;10.3d;59
+32
+!s110 1535980565
+!i10b 1
+!s108 1535980565.177000
+Z8 !s90 -reportprogress|300|paridade.vhd|teste.vhd|
+Z9 !s107 teste.vhd|paridade.vhd|
+!i113 1
+Z10 tExplicit 1
+Eparidade
+Z11 w1535981184
+R1
+R2
+R3
+R4
+R0
+R5
+R6
+l0
+L14
+V0AiC6UzWFbF<JW9=dJ?6;3
+!s100 d4e[g6d;AOn6KTIOIIkn31
+R7
+32
+Z12 !s110 1535981198
+!i10b 1
+Z13 !s108 1535981198.870000
+R8
+R9
+!i113 1
+R10
+Asele
+R1
+R2
+R3
+R4
+Z14 DEx4 work 8 paridade 0 22 0AiC6UzWFbF<JW9=dJ?6;3
+l24
+L22
+V7[_L]iaWI;YXRGUH<FP872
+!s100 fFn??LNP;6Bo9DCM6k^::0
+R7
+32
+R12
+!i10b 1
+R13
+R8
+R9
+!i113 1
+R10
+Eteste
+R11
+Z15 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+R3
+R4
+R0
+Z16 8teste.vhd
+Z17 Fteste.vhd
+l0
+L14
+VBI[E]ChSmzBccIL=BFmaE3
+!s100 TOQbfQMO85H6n?_b>3eCR1
+R7
+32
+Z18 !s110 1535981199
+!i10b 1
+R13
+R8
+R9
+!i113 1
+R10
+Astimulus
+R15
+R3
+R4
+DEx4 work 5 teste 0 22 BI[E]ChSmzBccIL=BFmaE3
+l33
+L18
+VdI]PKbgC>ikfJk9^6VW0?0
+!s100 ;1HfziMfKeA1SDe2Hc@lI2
+R7
+32
+R18
+!i10b 1
+R13
+R8
+R9
+!i113 1
+R10

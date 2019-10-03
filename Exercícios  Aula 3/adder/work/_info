@@ -1,0 +1,88 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/eclipse/home/workspace/adder
+Eadder
+Z1 w1535156095
+Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z5 8adder.vhd
+Z6 Fadder.vhd
+l0
+L14
+VX@[IlOzTZ4c1YOon=2ek72
+!s100 3YC_cV0aiMeQAFg3Ljkc@2
+Z7 OV;C;10.3d;59
+32
+Z8 !s110 1535156732
+!i10b 1
+Z9 !s108 1535156732.008000
+Z10 !s90 -reportprogress|300|adder.vhd|teste.vhd|
+Z11 !s107 teste.vhd|adder.vhd|
+!i113 1
+Z12 tExplicit 1
+Asomador
+R2
+R3
+R4
+Z13 DEx4 work 5 adder 0 22 X@[IlOzTZ4c1YOon=2ek72
+l27
+L25
+Z14 VHP>R4IRc=ZYe[^S;<noK<3
+Z15 !s100 OSLEaCn_Gc9J0>Ym:o?fQ3
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+Eteste
+Z16 w1535156727
+R2
+R3
+R4
+R0
+Z17 8teste.vhd
+Z18 Fteste.vhd
+l0
+L14
+V@kEn@GE4zEI_zKgfH=6i53
+!s100 4LoQQJlPLKnD4blVc8ONI2
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+Astimulus
+R2
+R3
+R4
+Z19 DEx4 work 5 teste 0 22 @kEn@GE4zEI_zKgfH=6i53
+l37
+L21
+Vn:hUAo70jMb>e<hY15e9F0
+!s100 Rll9cfjISB4hC?<1_eAK73
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
