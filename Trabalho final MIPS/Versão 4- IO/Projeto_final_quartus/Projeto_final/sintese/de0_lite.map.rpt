@@ -1,0 +1,841 @@
+Analysis & Synthesis report for de0_lite
+Sun Dec 16 19:16:34 2018
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |de0_lite|mips:log|fsm:machine|state
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Port Connectivity Checks: "mips:log"
+ 14. Post-Synthesis Netlist Statistics for Top Partition
+ 15. Elapsed Time Per Partition
+ 16. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sun Dec 16 19:16:34 2018       ;
+; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                      ; de0_lite                                    ;
+; Top-level Entity Name              ; de0_lite                                    ;
+; Family                             ; MAX 10                                      ;
+; Total logic elements               ; 915                                         ;
+;     Total combinational functions  ; 772                                         ;
+;     Dedicated logic registers      ; 204                                         ;
+; Total registers                    ; 204                                         ;
+; Total pins                         ; 149                                         ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 10M50DAF484C7G     ;                    ;
+; Top-level entity name                                            ; de0_lite           ; de0_lite           ;
+; Family name                                                      ; MAX 10 FPGA        ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                         ; Library ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------------------------------------------+---------+
+; ../ram_mips.vhd                  ; yes             ; User VHDL File  ; C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/ram_mips.vhd              ;         ;
+; ../add_ram.vhd                   ; yes             ; User VHDL File  ; C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/add_ram.vhd               ;         ;
+; ../ula.vhd                       ; yes             ; User VHDL File  ; C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/ula.vhd                   ;         ;
+; ../rom.vhd                       ; yes             ; User VHDL File  ; C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/rom.vhd                   ;         ;
+; ../pc.vhd                        ; yes             ; User VHDL File  ; C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/pc.vhd                    ;         ;
+; ../mux_r.vhd                     ; yes             ; User VHDL File  ; C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/mux_r.vhd                 ;         ;
+; ../mux.vhd                       ; yes             ; User VHDL File  ; C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/mux.vhd                   ;         ;
+; ../mips.vhd                      ; yes             ; User VHDL File  ; C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/mips.vhd                  ;         ;
+; ../ir.vhd                        ; yes             ; User VHDL File  ; C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/ir.vhd                    ;         ;
+; ../fsm.vhd                       ; yes             ; User VHDL File  ; C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/fsm.vhd                   ;         ;
+; ../extensao_b.vhd                ; yes             ; User VHDL File  ; C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/extensao_b.vhd            ;         ;
+; ../extensao_a.vhd                ; yes             ; User VHDL File  ; C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/extensao_a.vhd            ;         ;
+; ../concat.vhd                    ; yes             ; User VHDL File  ; C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/concat.vhd                ;         ;
+; ../branch.vhd                    ; yes             ; User VHDL File  ; C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/branch.vhd                ;         ;
+; ../reg32.vhd                     ; yes             ; User VHDL File  ; C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/reg32.vhd                 ;         ;
+; ../banco_reg_32_generate.vhd     ; yes             ; User VHDL File  ; C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/banco_reg_32_generate.vhd ;         ;
+; de0_lite.vhd                     ; yes             ; User VHDL File  ; C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd      ;         ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------------------------------------------+---------+
+
+
++-------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                       ;
++---------------------------------------------+---------------------+
+; Resource                                    ; Usage               ;
++---------------------------------------------+---------------------+
+; Estimated Total logic elements              ; 915                 ;
+;                                             ;                     ;
+; Total combinational functions               ; 772                 ;
+; Logic element usage by number of LUT inputs ;                     ;
+;     -- 4 input functions                    ; 556                 ;
+;     -- 3 input functions                    ; 137                 ;
+;     -- <=2 input functions                  ; 79                  ;
+;                                             ;                     ;
+; Logic elements by mode                      ;                     ;
+;     -- normal mode                          ; 732                 ;
+;     -- arithmetic mode                      ; 40                  ;
+;                                             ;                     ;
+; Total registers                             ; 204                 ;
+;     -- Dedicated logic registers            ; 204                 ;
+;     -- I/O registers                        ; 0                   ;
+;                                             ;                     ;
+; I/O pins                                    ; 149                 ;
+;                                             ;                     ;
+; Embedded Multiplier 9-bit elements          ; 0                   ;
+;                                             ;                     ;
+; Maximum fan-out node                        ; MAX10_CLK1_50~input ;
+; Maximum fan-out                             ; 204                 ;
+; Total fan-out                               ; 3794                ;
+; Average fan-out                             ; 2.90                ;
++---------------------------------------------+---------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                             ;
++------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------+-----------------------+--------------+
+; Compilation Hierarchy Node         ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                            ; Entity Name           ; Library Name ;
++------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------+-----------------------+--------------+
+; |de0_lite                          ; 772 (0)             ; 204 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 149  ; 0            ; 0          ; |de0_lite                                                      ; de0_lite              ; work         ;
+;    |mips:log|                      ; 772 (0)             ; 204 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |de0_lite|mips:log                                             ; mips                  ; work         ;
+;       |add_ram:add_0|              ; 8 (8)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |de0_lite|mips:log|add_ram:add_0                               ; add_ram               ; work         ;
+;       |banco_reg_32_generate:br_0| ; 76 (76)             ; 128 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |de0_lite|mips:log|banco_reg_32_generate:br_0                  ; banco_reg_32_generate ; work         ;
+;          |reg32:\reg:0:reg|        ; 0 (0)               ; 32 (32)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |de0_lite|mips:log|banco_reg_32_generate:br_0|reg32:\reg:0:reg ; reg32                 ; work         ;
+;          |reg32:\reg:1:reg|        ; 0 (0)               ; 32 (32)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |de0_lite|mips:log|banco_reg_32_generate:br_0|reg32:\reg:1:reg ; reg32                 ; work         ;
+;          |reg32:\reg:2:reg|        ; 0 (0)               ; 32 (32)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |de0_lite|mips:log|banco_reg_32_generate:br_0|reg32:\reg:2:reg ; reg32                 ; work         ;
+;          |reg32:\reg:3:reg|        ; 0 (0)               ; 32 (32)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |de0_lite|mips:log|banco_reg_32_generate:br_0|reg32:\reg:3:reg ; reg32                 ; work         ;
+;       |fsm:machine|                ; 15 (15)             ; 9 (9)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |de0_lite|mips:log|fsm:machine                                 ; fsm                   ; work         ;
+;       |ir:ir_0|                    ; 0 (0)               ; 11 (11)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |de0_lite|mips:log|ir:ir_0                                     ; ir                    ; work         ;
+;       |mux:mux_d|                  ; 35 (35)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |de0_lite|mips:log|mux:mux_d                                   ; mux                   ; work         ;
+;       |mux:mux_e|                  ; 30 (30)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |de0_lite|mips:log|mux:mux_e                                   ; mux                   ; work         ;
+;       |mux_r:r_mux|                ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |de0_lite|mips:log|mux_r:r_mux                                 ; mux_r                 ; work         ;
+;       |pc:pc_0|                    ; 3 (3)               ; 3 (3)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |de0_lite|mips:log|pc:pc_0                                     ; pc                    ; work         ;
+;       |ram_mips:ram_0|             ; 1 (1)               ; 10 (10)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |de0_lite|mips:log|ram_mips:ram_0                              ; ram_mips              ; work         ;
+;       |rom:rom_0|                  ; 11 (11)             ; 11 (11)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |de0_lite|mips:log|rom:rom_0                                   ; rom                   ; work         ;
+;       |ula:ula_0|                  ; 592 (592)           ; 32 (32)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |de0_lite|mips:log|ula:ula_0                                   ; ula                   ; work         ;
++------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------+-----------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |de0_lite|mips:log|fsm:machine|state                                                                                                                                                                                                                                                      ;
++---------------------+--------------------+-------------+-------------------+------------+------------+-------------------+-------------------+--------------------+--------------------+------------+-------------+--------------+--------------+----------+---------------------+----------+-------------+
+; Name                ; state.RETURN_STORE ; state.STORE ; state.RETURN_LOAD ; state.LOAD ; state.JUMP ; state.RETURN_ZERO ; state.BRANCH_ZERO ; state.RETURN_EQUAL ; state.BRANCH_EQUAL ; state.HALT ; state.R_MEN ; state.FUNC_R ; state.LI_MEN ; state.LI ; state.DECODIFICADOR ; state.RI ; state.FETCH ;
++---------------------+--------------------+-------------+-------------------+------------+------------+-------------------+-------------------+--------------------+--------------------+------------+-------------+--------------+--------------+----------+---------------------+----------+-------------+
+; state.FETCH         ; 0                  ; 0           ; 0                 ; 0          ; 0          ; 0                 ; 0                 ; 0                  ; 0                  ; 0          ; 0           ; 0            ; 0            ; 0        ; 0                   ; 0        ; 0           ;
+; state.RI            ; 0                  ; 0           ; 0                 ; 0          ; 0          ; 0                 ; 0                 ; 0                  ; 0                  ; 0          ; 0           ; 0            ; 0            ; 0        ; 0                   ; 1        ; 1           ;
+; state.DECODIFICADOR ; 0                  ; 0           ; 0                 ; 0          ; 0          ; 0                 ; 0                 ; 0                  ; 0                  ; 0          ; 0           ; 0            ; 0            ; 0        ; 1                   ; 0        ; 1           ;
+; state.LI            ; 0                  ; 0           ; 0                 ; 0          ; 0          ; 0                 ; 0                 ; 0                  ; 0                  ; 0          ; 0           ; 0            ; 0            ; 1        ; 0                   ; 0        ; 1           ;
+; state.LI_MEN        ; 0                  ; 0           ; 0                 ; 0          ; 0          ; 0                 ; 0                 ; 0                  ; 0                  ; 0          ; 0           ; 0            ; 1            ; 0        ; 0                   ; 0        ; 1           ;
+; state.FUNC_R        ; 0                  ; 0           ; 0                 ; 0          ; 0          ; 0                 ; 0                 ; 0                  ; 0                  ; 0          ; 0           ; 1            ; 0            ; 0        ; 0                   ; 0        ; 1           ;
+; state.R_MEN         ; 0                  ; 0           ; 0                 ; 0          ; 0          ; 0                 ; 0                 ; 0                  ; 0                  ; 0          ; 1           ; 0            ; 0            ; 0        ; 0                   ; 0        ; 1           ;
+; state.HALT          ; 0                  ; 0           ; 0                 ; 0          ; 0          ; 0                 ; 0                 ; 0                  ; 0                  ; 1          ; 0           ; 0            ; 0            ; 0        ; 0                   ; 0        ; 1           ;
+; state.BRANCH_EQUAL  ; 0                  ; 0           ; 0                 ; 0          ; 0          ; 0                 ; 0                 ; 0                  ; 1                  ; 0          ; 0           ; 0            ; 0            ; 0        ; 0                   ; 0        ; 1           ;
+; state.RETURN_EQUAL  ; 0                  ; 0           ; 0                 ; 0          ; 0          ; 0                 ; 0                 ; 1                  ; 0                  ; 0          ; 0           ; 0            ; 0            ; 0        ; 0                   ; 0        ; 1           ;
+; state.BRANCH_ZERO   ; 0                  ; 0           ; 0                 ; 0          ; 0          ; 0                 ; 1                 ; 0                  ; 0                  ; 0          ; 0           ; 0            ; 0            ; 0        ; 0                   ; 0        ; 1           ;
+; state.RETURN_ZERO   ; 0                  ; 0           ; 0                 ; 0          ; 0          ; 1                 ; 0                 ; 0                  ; 0                  ; 0          ; 0           ; 0            ; 0            ; 0        ; 0                   ; 0        ; 1           ;
+; state.JUMP          ; 0                  ; 0           ; 0                 ; 0          ; 1          ; 0                 ; 0                 ; 0                  ; 0                  ; 0          ; 0           ; 0            ; 0            ; 0        ; 0                   ; 0        ; 1           ;
+; state.LOAD          ; 0                  ; 0           ; 0                 ; 1          ; 0          ; 0                 ; 0                 ; 0                  ; 0                  ; 0          ; 0           ; 0            ; 0            ; 0        ; 0                   ; 0        ; 1           ;
+; state.RETURN_LOAD   ; 0                  ; 0           ; 1                 ; 0          ; 0          ; 0                 ; 0                 ; 0                  ; 0                  ; 0          ; 0           ; 0            ; 0            ; 0        ; 0                   ; 0        ; 1           ;
+; state.STORE         ; 0                  ; 1           ; 0                 ; 0          ; 0          ; 0                 ; 0                 ; 0                  ; 0                  ; 0          ; 0           ; 0            ; 0            ; 0        ; 0                   ; 0        ; 1           ;
+; state.RETURN_STORE  ; 1                  ; 0           ; 0                 ; 0          ; 0          ; 0                 ; 0                 ; 0                  ; 0                  ; 0          ; 0           ; 0            ; 0            ; 0        ; 0                   ; 0        ; 1           ;
++---------------------+--------------------+-------------+-------------------+------------+------------+-------------------+-------------------+--------------------+--------------------+------------+-------------+--------------+--------------+----------+---------------------+----------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                 ;
++----------------------------------------------------------------------+---------------------------------------------+
+; Register name                                                        ; Reason for Removal                          ;
++----------------------------------------------------------------------+---------------------------------------------+
+; mips:log|rom:rom_0|data_out[4,6,8..10,13..15,18..20,22..25,28,30]    ; Stuck at GND due to stuck port data_in      ;
+; mips:log|ir:ir_0|opcode[2,4]                                         ; Stuck at GND due to stuck port data_in      ;
+; mips:log|ir:ir_0|rs[1..4]                                            ; Stuck at GND due to stuck port data_in      ;
+; mips:log|ir:ir_0|rt[2..4]                                            ; Stuck at GND due to stuck port data_in      ;
+; mips:log|ir:ir_0|rd[2..4]                                            ; Stuck at GND due to stuck port data_in      ;
+; mips:log|ir:ir_0|shamt[0,2..4]                                       ; Stuck at GND due to stuck port data_in      ;
+; mips:log|ir:ir_0|funct[4]                                            ; Stuck at GND due to stuck port data_in      ;
+; mips:log|ir:ir_0|address[4,6,8..10,13..15]                           ; Stuck at GND due to stuck port data_in      ;
+; mips:log|ir:ir_0|pseudo_address[4,6,8..10,13..15,18..20,22..25]      ; Stuck at GND due to stuck port data_in      ;
+; mips:log|banco_reg_32_generate:br_0|reg32:\reg:31:reg|reg_out[0..31] ; Lost fanout                                 ;
+; mips:log|banco_reg_32_generate:br_0|reg32:\reg:30:reg|reg_out[0..31] ; Lost fanout                                 ;
+; mips:log|banco_reg_32_generate:br_0|reg32:\reg:29:reg|reg_out[0..31] ; Lost fanout                                 ;
+; mips:log|banco_reg_32_generate:br_0|reg32:\reg:28:reg|reg_out[0..31] ; Lost fanout                                 ;
+; mips:log|banco_reg_32_generate:br_0|reg32:\reg:27:reg|reg_out[0..31] ; Lost fanout                                 ;
+; mips:log|banco_reg_32_generate:br_0|reg32:\reg:26:reg|reg_out[0..31] ; Lost fanout                                 ;
+; mips:log|banco_reg_32_generate:br_0|reg32:\reg:25:reg|reg_out[0..31] ; Lost fanout                                 ;
+; mips:log|banco_reg_32_generate:br_0|reg32:\reg:24:reg|reg_out[0..31] ; Lost fanout                                 ;
+; mips:log|banco_reg_32_generate:br_0|reg32:\reg:23:reg|reg_out[0..31] ; Lost fanout                                 ;
+; mips:log|banco_reg_32_generate:br_0|reg32:\reg:22:reg|reg_out[0..31] ; Lost fanout                                 ;
+; mips:log|banco_reg_32_generate:br_0|reg32:\reg:21:reg|reg_out[0..31] ; Lost fanout                                 ;
+; mips:log|banco_reg_32_generate:br_0|reg32:\reg:20:reg|reg_out[0..31] ; Lost fanout                                 ;
+; mips:log|banco_reg_32_generate:br_0|reg32:\reg:19:reg|reg_out[0..31] ; Lost fanout                                 ;
+; mips:log|banco_reg_32_generate:br_0|reg32:\reg:18:reg|reg_out[0..31] ; Lost fanout                                 ;
+; mips:log|banco_reg_32_generate:br_0|reg32:\reg:17:reg|reg_out[0..31] ; Lost fanout                                 ;
+; mips:log|banco_reg_32_generate:br_0|reg32:\reg:16:reg|reg_out[0..31] ; Lost fanout                                 ;
+; mips:log|banco_reg_32_generate:br_0|reg32:\reg:15:reg|reg_out[0..31] ; Lost fanout                                 ;
+; mips:log|banco_reg_32_generate:br_0|reg32:\reg:14:reg|reg_out[0..31] ; Lost fanout                                 ;
+; mips:log|banco_reg_32_generate:br_0|reg32:\reg:13:reg|reg_out[0..31] ; Lost fanout                                 ;
+; mips:log|banco_reg_32_generate:br_0|reg32:\reg:12:reg|reg_out[0..31] ; Lost fanout                                 ;
+; mips:log|banco_reg_32_generate:br_0|reg32:\reg:11:reg|reg_out[0..31] ; Lost fanout                                 ;
+; mips:log|banco_reg_32_generate:br_0|reg32:\reg:10:reg|reg_out[0..31] ; Lost fanout                                 ;
+; mips:log|banco_reg_32_generate:br_0|reg32:\reg:9:reg|reg_out[0..31]  ; Lost fanout                                 ;
+; mips:log|banco_reg_32_generate:br_0|reg32:\reg:8:reg|reg_out[0..31]  ; Lost fanout                                 ;
+; mips:log|banco_reg_32_generate:br_0|reg32:\reg:7:reg|reg_out[0..31]  ; Lost fanout                                 ;
+; mips:log|banco_reg_32_generate:br_0|reg32:\reg:6:reg|reg_out[0..31]  ; Lost fanout                                 ;
+; mips:log|banco_reg_32_generate:br_0|reg32:\reg:5:reg|reg_out[0..31]  ; Lost fanout                                 ;
+; mips:log|banco_reg_32_generate:br_0|reg32:\reg:4:reg|reg_out[0..31]  ; Lost fanout                                 ;
+; mips:log|ir:ir_0|pseudo_address[21]                                  ; Merged with mips:log|ir:ir_0|rs[0]          ;
+; mips:log|ir:ir_0|pseudo_address[17]                                  ; Merged with mips:log|ir:ir_0|rt[1]          ;
+; mips:log|ir:ir_0|pseudo_address[16]                                  ; Merged with mips:log|ir:ir_0|rt[0]          ;
+; mips:log|ir:ir_0|address[12]                                         ; Merged with mips:log|ir:ir_0|rd[1]          ;
+; mips:log|ir:ir_0|pseudo_address[12]                                  ; Merged with mips:log|ir:ir_0|rd[1]          ;
+; mips:log|ir:ir_0|address[11]                                         ; Merged with mips:log|ir:ir_0|rd[0]          ;
+; mips:log|ir:ir_0|pseudo_address[11]                                  ; Merged with mips:log|ir:ir_0|rd[0]          ;
+; mips:log|ir:ir_0|address[7]                                          ; Merged with mips:log|ir:ir_0|shamt[1]       ;
+; mips:log|ir:ir_0|pseudo_address[7]                                   ; Merged with mips:log|ir:ir_0|shamt[1]       ;
+; mips:log|ir:ir_0|address[5]                                          ; Merged with mips:log|ir:ir_0|funct[5]       ;
+; mips:log|ir:ir_0|pseudo_address[5]                                   ; Merged with mips:log|ir:ir_0|funct[5]       ;
+; mips:log|ir:ir_0|address[3]                                          ; Merged with mips:log|ir:ir_0|funct[3]       ;
+; mips:log|ir:ir_0|pseudo_address[3]                                   ; Merged with mips:log|ir:ir_0|funct[3]       ;
+; mips:log|ir:ir_0|address[2]                                          ; Merged with mips:log|ir:ir_0|funct[2]       ;
+; mips:log|ir:ir_0|pseudo_address[2]                                   ; Merged with mips:log|ir:ir_0|funct[2]       ;
+; mips:log|ir:ir_0|address[1]                                          ; Merged with mips:log|ir:ir_0|funct[1]       ;
+; mips:log|ir:ir_0|pseudo_address[1]                                   ; Merged with mips:log|ir:ir_0|funct[1]       ;
+; mips:log|ir:ir_0|address[0]                                          ; Merged with mips:log|ir:ir_0|funct[0]       ;
+; mips:log|ir:ir_0|pseudo_address[0]                                   ; Merged with mips:log|ir:ir_0|funct[0]       ;
+; mips:log|rom:rom_0|data_out[17]                                      ; Merged with mips:log|rom:rom_0|data_out[5]  ;
+; mips:log|rom:rom_0|data_out[27,31]                                   ; Merged with mips:log|rom:rom_0|data_out[16] ;
+; mips:log|rom:rom_0|data_out[29]                                      ; Merged with mips:log|rom:rom_0|data_out[26] ;
+; mips:log|pc:pc_0|count[0]                                            ; Merged with mips:log|pc:pc_0|data[0]        ;
+; mips:log|pc:pc_0|data[31]                                            ; Merged with mips:log|pc:pc_0|count[31]      ;
+; mips:log|pc:pc_0|data[30]                                            ; Merged with mips:log|pc:pc_0|count[30]      ;
+; mips:log|pc:pc_0|data[29]                                            ; Merged with mips:log|pc:pc_0|count[29]      ;
+; mips:log|pc:pc_0|data[28]                                            ; Merged with mips:log|pc:pc_0|count[28]      ;
+; mips:log|pc:pc_0|data[27]                                            ; Merged with mips:log|pc:pc_0|count[27]      ;
+; mips:log|pc:pc_0|data[26]                                            ; Merged with mips:log|pc:pc_0|count[26]      ;
+; mips:log|pc:pc_0|data[25]                                            ; Merged with mips:log|pc:pc_0|count[25]      ;
+; mips:log|pc:pc_0|data[24]                                            ; Merged with mips:log|pc:pc_0|count[24]      ;
+; mips:log|pc:pc_0|data[23]                                            ; Merged with mips:log|pc:pc_0|count[23]      ;
+; mips:log|pc:pc_0|data[22]                                            ; Merged with mips:log|pc:pc_0|count[22]      ;
+; mips:log|pc:pc_0|data[21]                                            ; Merged with mips:log|pc:pc_0|count[21]      ;
+; mips:log|pc:pc_0|data[20]                                            ; Merged with mips:log|pc:pc_0|count[20]      ;
+; mips:log|pc:pc_0|data[19]                                            ; Merged with mips:log|pc:pc_0|count[19]      ;
+; mips:log|pc:pc_0|data[18]                                            ; Merged with mips:log|pc:pc_0|count[18]      ;
+; mips:log|pc:pc_0|data[17]                                            ; Merged with mips:log|pc:pc_0|count[17]      ;
+; mips:log|pc:pc_0|data[16]                                            ; Merged with mips:log|pc:pc_0|count[16]      ;
+; mips:log|pc:pc_0|data[15]                                            ; Merged with mips:log|pc:pc_0|count[15]      ;
+; mips:log|pc:pc_0|data[14]                                            ; Merged with mips:log|pc:pc_0|count[14]      ;
+; mips:log|pc:pc_0|data[13]                                            ; Merged with mips:log|pc:pc_0|count[13]      ;
+; mips:log|pc:pc_0|data[12]                                            ; Merged with mips:log|pc:pc_0|count[12]      ;
+; mips:log|pc:pc_0|data[11]                                            ; Merged with mips:log|pc:pc_0|count[11]      ;
+; mips:log|pc:pc_0|data[10]                                            ; Merged with mips:log|pc:pc_0|count[10]      ;
+; mips:log|pc:pc_0|data[9]                                             ; Merged with mips:log|pc:pc_0|count[9]       ;
+; mips:log|pc:pc_0|data[8]                                             ; Merged with mips:log|pc:pc_0|count[8]       ;
+; mips:log|pc:pc_0|data[7]                                             ; Merged with mips:log|pc:pc_0|count[7]       ;
+; mips:log|pc:pc_0|data[6]                                             ; Merged with mips:log|pc:pc_0|count[6]       ;
+; mips:log|pc:pc_0|data[5]                                             ; Merged with mips:log|pc:pc_0|count[5]       ;
+; mips:log|pc:pc_0|data[4]                                             ; Merged with mips:log|pc:pc_0|count[4]       ;
+; mips:log|pc:pc_0|data[3]                                             ; Merged with mips:log|pc:pc_0|count[3]       ;
+; mips:log|pc:pc_0|data[2]                                             ; Merged with mips:log|pc:pc_0|count[2]       ;
+; mips:log|pc:pc_0|data[1]                                             ; Merged with mips:log|pc:pc_0|count[1]       ;
+; mips:log|ir:ir_0|rt[0]                                               ; Merged with mips:log|ir:ir_0|opcode[5]      ;
+; mips:log|ir:ir_0|opcode[1]                                           ; Merged with mips:log|ir:ir_0|opcode[5]      ;
+; mips:log|ir:ir_0|opcode[0]                                           ; Merged with mips:log|ir:ir_0|opcode[3]      ;
+; mips:log|ir:ir_0|funct[5]                                            ; Merged with mips:log|ir:ir_0|rt[1]          ;
+; mips:log|ram_mips:ram_0|data_display[0..2]                           ; Stuck at VCC due to stuck port clock_enable ;
+; mips:log|fsm:machine|state.BRANCH_EQUAL                              ; Stuck at GND due to stuck port data_in      ;
+; mips:log|fsm:machine|state.BRANCH_ZERO                               ; Stuck at GND due to stuck port data_in      ;
+; mips:log|fsm:machine|state.JUMP                                      ; Stuck at GND due to stuck port data_in      ;
+; mips:log|fsm:machine|state.LOAD                                      ; Stuck at GND due to stuck port data_in      ;
+; mips:log|ram_mips:ram_0|out_ram[10..31]                              ; Stuck at GND due to stuck port clock_enable ;
+; mips:log|fsm:machine|state.RETURN_EQUAL                              ; Stuck at GND due to stuck port data_in      ;
+; mips:log|fsm:machine|state.RETURN_ZERO                               ; Stuck at GND due to stuck port data_in      ;
+; mips:log|fsm:machine|state.RETURN_LOAD                               ; Stuck at GND due to stuck port data_in      ;
+; mips:log|ram_mips:ram_0|out_ram[0..9]                                ; Stuck at GND due to stuck port clock_enable ;
+; mips:log|ula:ula_0|less                                              ; Lost fanout                                 ;
+; mips:log|ula:ula_0|equal                                             ; Lost fanout                                 ;
+; mips:log|fsm:machine|state.HALT                                      ; Lost fanout                                 ;
+; mips:log|pc:pc_0|count[3..31]                                        ; Lost fanout                                 ;
+; Total Number of Removed Registers = 1086                             ;                                             ;
++----------------------------------------------------------------------+---------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                            ;
++-----------------------------------------+---------------------------+----------------------------------------------------------------------------------+
+; Register name                           ; Reason for Removal        ; Registers Removed due to This Register                                           ;
++-----------------------------------------+---------------------------+----------------------------------------------------------------------------------+
+; mips:log|rom:rom_0|data_out[25]         ; Stuck at GND              ; mips:log|ir:ir_0|rs[4], mips:log|ir:ir_0|pseudo_address[25],                     ;
+;                                         ; due to stuck port data_in ; mips:log|ram_mips:ram_0|out_ram[30], mips:log|ram_mips:ram_0|out_ram[29],        ;
+;                                         ;                           ; mips:log|ram_mips:ram_0|out_ram[28], mips:log|ram_mips:ram_0|out_ram[27],        ;
+;                                         ;                           ; mips:log|ram_mips:ram_0|out_ram[26], mips:log|ram_mips:ram_0|out_ram[25],        ;
+;                                         ;                           ; mips:log|ram_mips:ram_0|out_ram[24], mips:log|ram_mips:ram_0|out_ram[23],        ;
+;                                         ;                           ; mips:log|ram_mips:ram_0|out_ram[22], mips:log|ram_mips:ram_0|out_ram[21],        ;
+;                                         ;                           ; mips:log|ram_mips:ram_0|out_ram[20], mips:log|ram_mips:ram_0|out_ram[19],        ;
+;                                         ;                           ; mips:log|ram_mips:ram_0|out_ram[18], mips:log|ram_mips:ram_0|out_ram[17],        ;
+;                                         ;                           ; mips:log|ram_mips:ram_0|out_ram[16], mips:log|ram_mips:ram_0|out_ram[15],        ;
+;                                         ;                           ; mips:log|ram_mips:ram_0|out_ram[14], mips:log|ram_mips:ram_0|out_ram[13],        ;
+;                                         ;                           ; mips:log|ram_mips:ram_0|out_ram[12], mips:log|ram_mips:ram_0|out_ram[11],        ;
+;                                         ;                           ; mips:log|ram_mips:ram_0|out_ram[10], mips:log|ram_mips:ram_0|out_ram[31],        ;
+;                                         ;                           ; mips:log|ram_mips:ram_0|out_ram[0], mips:log|ram_mips:ram_0|out_ram[1],          ;
+;                                         ;                           ; mips:log|ram_mips:ram_0|out_ram[2], mips:log|ram_mips:ram_0|out_ram[3],          ;
+;                                         ;                           ; mips:log|ram_mips:ram_0|out_ram[4], mips:log|ram_mips:ram_0|out_ram[5],          ;
+;                                         ;                           ; mips:log|ram_mips:ram_0|out_ram[6], mips:log|ram_mips:ram_0|out_ram[7],          ;
+;                                         ;                           ; mips:log|ram_mips:ram_0|out_ram[8], mips:log|ram_mips:ram_0|out_ram[9]           ;
+; mips:log|rom:rom_0|data_out[15]         ; Stuck at GND              ; mips:log|ir:ir_0|rd[4], mips:log|ir:ir_0|address[15],                            ;
+;                                         ; due to stuck port data_in ; mips:log|ir:ir_0|pseudo_address[15], mips:log|ula:ula_0|less,                    ;
+;                                         ;                           ; mips:log|ula:ula_0|equal                                                         ;
+; mips:log|rom:rom_0|data_out[30]         ; Stuck at GND              ; mips:log|ir:ir_0|opcode[4], mips:log|ram_mips:ram_0|data_display[2],             ;
+;                                         ; due to stuck port data_in ; mips:log|ram_mips:ram_0|data_display[1], mips:log|ram_mips:ram_0|data_display[0] ;
+; mips:log|rom:rom_0|data_out[6]          ; Stuck at GND              ; mips:log|ir:ir_0|shamt[0], mips:log|ir:ir_0|address[6],                          ;
+;                                         ; due to stuck port data_in ; mips:log|ir:ir_0|pseudo_address[6]                                               ;
+; mips:log|rom:rom_0|data_out[4]          ; Stuck at GND              ; mips:log|ir:ir_0|funct[4], mips:log|ir:ir_0|address[4],                          ;
+;                                         ; due to stuck port data_in ; mips:log|ir:ir_0|pseudo_address[4]                                               ;
+; mips:log|rom:rom_0|data_out[8]          ; Stuck at GND              ; mips:log|ir:ir_0|shamt[2], mips:log|ir:ir_0|address[8],                          ;
+;                                         ; due to stuck port data_in ; mips:log|ir:ir_0|pseudo_address[8]                                               ;
+; mips:log|rom:rom_0|data_out[9]          ; Stuck at GND              ; mips:log|ir:ir_0|shamt[3], mips:log|ir:ir_0|address[9],                          ;
+;                                         ; due to stuck port data_in ; mips:log|ir:ir_0|pseudo_address[9]                                               ;
+; mips:log|rom:rom_0|data_out[10]         ; Stuck at GND              ; mips:log|ir:ir_0|shamt[4], mips:log|ir:ir_0|address[10],                         ;
+;                                         ; due to stuck port data_in ; mips:log|ir:ir_0|pseudo_address[10]                                              ;
+; mips:log|rom:rom_0|data_out[13]         ; Stuck at GND              ; mips:log|ir:ir_0|rd[2], mips:log|ir:ir_0|address[13],                            ;
+;                                         ; due to stuck port data_in ; mips:log|ir:ir_0|pseudo_address[13]                                              ;
+; mips:log|rom:rom_0|data_out[14]         ; Stuck at GND              ; mips:log|ir:ir_0|rd[3], mips:log|ir:ir_0|address[14],                            ;
+;                                         ; due to stuck port data_in ; mips:log|ir:ir_0|pseudo_address[14]                                              ;
+; mips:log|rom:rom_0|data_out[18]         ; Stuck at GND              ; mips:log|ir:ir_0|rt[2], mips:log|ir:ir_0|pseudo_address[18]                      ;
+;                                         ; due to stuck port data_in ;                                                                                  ;
+; mips:log|rom:rom_0|data_out[19]         ; Stuck at GND              ; mips:log|ir:ir_0|rt[3], mips:log|ir:ir_0|pseudo_address[19]                      ;
+;                                         ; due to stuck port data_in ;                                                                                  ;
+; mips:log|rom:rom_0|data_out[20]         ; Stuck at GND              ; mips:log|ir:ir_0|rt[4], mips:log|ir:ir_0|pseudo_address[20]                      ;
+;                                         ; due to stuck port data_in ;                                                                                  ;
+; mips:log|rom:rom_0|data_out[22]         ; Stuck at GND              ; mips:log|ir:ir_0|rs[1], mips:log|ir:ir_0|pseudo_address[22]                      ;
+;                                         ; due to stuck port data_in ;                                                                                  ;
+; mips:log|rom:rom_0|data_out[23]         ; Stuck at GND              ; mips:log|ir:ir_0|rs[2], mips:log|ir:ir_0|pseudo_address[23]                      ;
+;                                         ; due to stuck port data_in ;                                                                                  ;
+; mips:log|rom:rom_0|data_out[24]         ; Stuck at GND              ; mips:log|ir:ir_0|rs[3], mips:log|ir:ir_0|pseudo_address[24]                      ;
+;                                         ; due to stuck port data_in ;                                                                                  ;
+; mips:log|rom:rom_0|data_out[28]         ; Stuck at GND              ; mips:log|ir:ir_0|opcode[2]                                                       ;
+;                                         ; due to stuck port data_in ;                                                                                  ;
+; mips:log|fsm:machine|state.BRANCH_EQUAL ; Stuck at GND              ; mips:log|fsm:machine|state.RETURN_EQUAL                                          ;
+;                                         ; due to stuck port data_in ;                                                                                  ;
+; mips:log|fsm:machine|state.BRANCH_ZERO  ; Stuck at GND              ; mips:log|fsm:machine|state.RETURN_ZERO                                           ;
+;                                         ; due to stuck port data_in ;                                                                                  ;
+; mips:log|fsm:machine|state.LOAD         ; Stuck at GND              ; mips:log|fsm:machine|state.RETURN_LOAD                                           ;
+;                                         ; due to stuck port data_in ;                                                                                  ;
++-----------------------------------------+---------------------------+----------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 204   ;
+; Number of registers using Synchronous Clear  ; 6     ;
+; Number of registers using Synchronous Load   ; 10    ;
+; Number of registers using Asynchronous Clear ; 193   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 182   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------+
+; 3:1                ; 23 bits   ; 46 LEs        ; 23 LEs               ; 23 LEs                 ; Yes        ; |de0_lite|mips:log|ram_mips:ram_0|out_ram[19]       ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |de0_lite|mips:log|ram_mips:ram_0|out_ram[1]        ;
+; 4:1                ; 15 bits   ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; Yes        ; |de0_lite|mips:log|pc:pc_0|count[24]                ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |de0_lite|mips:log|pc:pc_0|count[30]                ;
+; 4:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; Yes        ; |de0_lite|mips:log|pc:pc_0|count[2]                 ;
+; 36:1               ; 4 bits    ; 96 LEs        ; 24 LEs               ; 72 LEs                 ; Yes        ; |de0_lite|mips:log|ula:ula_0|lo[14]                 ;
+; 37:1               ; 4 bits    ; 96 LEs        ; 28 LEs               ; 68 LEs                 ; Yes        ; |de0_lite|mips:log|ula:ula_0|lo[9]                  ;
+; 37:1               ; 16 bits   ; 384 LEs       ; 112 LEs              ; 272 LEs                ; Yes        ; |de0_lite|mips:log|ula:ula_0|lo[18]                 ;
+; 38:1               ; 4 bits    ; 100 LEs       ; 32 LEs               ; 68 LEs                 ; Yes        ; |de0_lite|mips:log|ula:ula_0|lo[4]                  ;
+; 39:1               ; 2 bits    ; 52 LEs        ; 16 LEs               ; 36 LEs                 ; Yes        ; |de0_lite|mips:log|ula:ula_0|lo[3]                  ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |de0_lite|HEX5                                      ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |de0_lite|mips:log|banco_reg_32_generate:br_0|Mux57 ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |de0_lite|mips:log|ula:ula_0|ShiftLeft0             ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |de0_lite|mips:log|ula:ula_0|ShiftLeft0             ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |de0_lite|mips:log|fsm:machine|Selector9            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "mips:log"                                                                                  ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; m_ir_opcode ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; m_ir_funct  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; m_ula_equal ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; m_ula_less  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; m_pc_load   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; m_pc_inc    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; m_rom_en    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; m_ir_load   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; m_br_p_w    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; m_ulaop     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; m_mux_d_sel ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; m_mux_e_sel ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; m_mux_r_sel ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; m_mux_c_sel ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; m_mux_a_sel ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; m_halt_sig  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; m_outa_reg  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; m_out_ula   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; m_p_w_add   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; m_p_w_data  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 149                         ;
+; cycloneiii_ff         ; 204                         ;
+;     CLR               ; 9                           ;
+;     CLR SLD           ; 2                           ;
+;     ENA CLR           ; 174                         ;
+;     ENA CLR SCLR SLD  ; 6                           ;
+;     ENA CLR SLD       ; 2                           ;
+;     plain             ; 11                          ;
+; cycloneiii_io_obuf    ; 35                          ;
+; cycloneiii_lcell_comb ; 774                         ;
+;     arith             ; 40                          ;
+;         2 data inputs ; 4                           ;
+;         3 data inputs ; 36                          ;
+;     normal            ; 734                         ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 2                           ;
+;         2 data inputs ; 73                          ;
+;         3 data inputs ; 101                         ;
+;         4 data inputs ; 556                         ;
+;                       ;                             ;
+; Max LUT depth         ; 14.00                       ;
+; Average LUT depth     ; 9.91                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:04     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Sun Dec 16 19:16:13 2018
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off de0_lite -c de0_lite
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file /users/arihe/desktop/trabalho final de pld/projeto_final/ram_mips.vhd
+    Info (12022): Found design unit 1: ram_mips-RTL File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/ram_mips.vhd Line: 21
+    Info (12023): Found entity 1: ram_mips File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/ram_mips.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/arihe/desktop/trabalho final de pld/projeto_final/add_ram.vhd
+    Info (12022): Found design unit 1: add_ram-RTL File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/add_ram.vhd Line: 13
+    Info (12023): Found entity 1: add_ram File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/add_ram.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/arihe/desktop/trabalho final de pld/projeto_final/ula.vhd
+    Info (12022): Found design unit 1: ula-RTL File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/ula.vhd Line: 18
+    Info (12023): Found entity 1: ula File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/ula.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/arihe/desktop/trabalho final de pld/projeto_final/rom.vhd
+    Info (12022): Found design unit 1: rom-RTL File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/rom.vhd Line: 14
+    Info (12023): Found entity 1: rom File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/rom.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/arihe/desktop/trabalho final de pld/projeto_final/pc.vhd
+    Info (12022): Found design unit 1: pc-RTL File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/pc.vhd Line: 16
+    Info (12023): Found entity 1: pc File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/pc.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/arihe/desktop/trabalho final de pld/projeto_final/mux_r.vhd
+    Info (12022): Found design unit 1: mux_r-RTL File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/mux_r.vhd Line: 14
+    Info (12023): Found entity 1: mux_r File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/mux_r.vhd Line: 5
+Warning (12090): Entity "mux" obtained from "../mux.vhd" instead of from Quartus Prime megafunction library File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/mux.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/arihe/desktop/trabalho final de pld/projeto_final/mux.vhd
+    Info (12022): Found design unit 1: mux-RTL File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/mux.vhd Line: 14
+    Info (12023): Found entity 1: mux File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/mux.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/arihe/desktop/trabalho final de pld/projeto_final/mips.vhd
+    Info (12022): Found design unit 1: mips-RTL File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/mips.vhd Line: 35
+    Info (12023): Found entity 1: mips File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/mips.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/arihe/desktop/trabalho final de pld/projeto_final/ir.vhd
+    Info (12022): Found design unit 1: ir-RTL File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/ir.vhd Line: 26
+    Info (12023): Found entity 1: ir File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/ir.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/arihe/desktop/trabalho final de pld/projeto_final/fsm.vhd
+    Info (12022): Found design unit 1: fsm-RTL File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/fsm.vhd Line: 32
+    Info (12023): Found entity 1: fsm File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/fsm.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/arihe/desktop/trabalho final de pld/projeto_final/extensao_b.vhd
+    Info (12022): Found design unit 1: extensao_b-RTL File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/extensao_b.vhd Line: 12
+    Info (12023): Found entity 1: extensao_b File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/extensao_b.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/arihe/desktop/trabalho final de pld/projeto_final/extensao_a.vhd
+    Info (12022): Found design unit 1: extensao_a-RTL File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/extensao_a.vhd Line: 13
+    Info (12023): Found entity 1: extensao_a File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/extensao_a.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/arihe/desktop/trabalho final de pld/projeto_final/concat.vhd
+    Info (12022): Found design unit 1: concat-RTL File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/concat.vhd Line: 13
+    Info (12023): Found entity 1: concat File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/concat.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/arihe/desktop/trabalho final de pld/projeto_final/branch.vhd
+    Info (12022): Found design unit 1: branch-RTL File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/branch.vhd Line: 13
+    Info (12023): Found entity 1: branch File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/branch.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/arihe/desktop/trabalho final de pld/projeto_final/reg32.vhd
+    Info (12022): Found design unit 1: reg32-RTL File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/reg32.vhd Line: 14
+    Info (12023): Found entity 1: reg32 File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/reg32.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /users/arihe/desktop/trabalho final de pld/projeto_final/banco_reg_32_generate.vhd
+    Info (12022): Found design unit 1: banco_reg_32_generate-RTL File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/banco_reg_32_generate.vhd Line: 19
+    Info (12023): Found entity 1: banco_reg_32_generate File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/banco_reg_32_generate.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file de0_lite.vhd
+    Info (12022): Found design unit 1: de0_lite-rtl File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 69
+    Info (12023): Found entity 1: de0_lite File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 11
+Info (12127): Elaborating entity "de0_lite" for the top level hierarchy
+Warning (10541): VHDL Signal Declaration warning at de0_lite.vhd(19): used implicit default value for signal "DRAM_ADDR" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 19
+Warning (10541): VHDL Signal Declaration warning at de0_lite.vhd(20): used implicit default value for signal "DRAM_BA" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 20
+Warning (10541): VHDL Signal Declaration warning at de0_lite.vhd(21): used implicit default value for signal "DRAM_CAS_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 21
+Warning (10541): VHDL Signal Declaration warning at de0_lite.vhd(22): used implicit default value for signal "DRAM_CKE" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 22
+Warning (10541): VHDL Signal Declaration warning at de0_lite.vhd(23): used implicit default value for signal "DRAM_CLK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 23
+Warning (10541): VHDL Signal Declaration warning at de0_lite.vhd(24): used implicit default value for signal "DRAM_CS_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 24
+Warning (10541): VHDL Signal Declaration warning at de0_lite.vhd(26): used implicit default value for signal "DRAM_LDQM" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 26
+Warning (10541): VHDL Signal Declaration warning at de0_lite.vhd(27): used implicit default value for signal "DRAM_RAS_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 27
+Warning (10541): VHDL Signal Declaration warning at de0_lite.vhd(28): used implicit default value for signal "DRAM_UDQM" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 28
+Warning (10541): VHDL Signal Declaration warning at de0_lite.vhd(29): used implicit default value for signal "DRAM_WE_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 29
+Warning (10541): VHDL Signal Declaration warning at de0_lite.vhd(49): used implicit default value for signal "VGA_B" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 49
+Warning (10541): VHDL Signal Declaration warning at de0_lite.vhd(50): used implicit default value for signal "VGA_G" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 50
+Warning (10541): VHDL Signal Declaration warning at de0_lite.vhd(51): used implicit default value for signal "VGA_HS" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 51
+Warning (10541): VHDL Signal Declaration warning at de0_lite.vhd(52): used implicit default value for signal "VGA_R" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 52
+Warning (10541): VHDL Signal Declaration warning at de0_lite.vhd(53): used implicit default value for signal "VGA_VS" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 53
+Warning (10541): VHDL Signal Declaration warning at de0_lite.vhd(56): used implicit default value for signal "GSENSOR_CS_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 56
+Warning (10541): VHDL Signal Declaration warning at de0_lite.vhd(58): used implicit default value for signal "GSENSOR_SCLK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 58
+Warning (10036): Verilog HDL or VHDL warning at de0_lite.vhd(103): object "m_pc_load" assigned a value but never read File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 103
+Warning (10036): Verilog HDL or VHDL warning at de0_lite.vhd(104): object "m_pc_inc" assigned a value but never read File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 104
+Warning (10036): Verilog HDL or VHDL warning at de0_lite.vhd(105): object "m_rom_en" assigned a value but never read File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 105
+Warning (10036): Verilog HDL or VHDL warning at de0_lite.vhd(106): object "m_ir_load" assigned a value but never read File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 106
+Warning (10036): Verilog HDL or VHDL warning at de0_lite.vhd(107): object "m_ir_opcode" assigned a value but never read File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 107
+Warning (10036): Verilog HDL or VHDL warning at de0_lite.vhd(108): object "m_ir_funct" assigned a value but never read File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 108
+Warning (10036): Verilog HDL or VHDL warning at de0_lite.vhd(109): object "m_br_p_w" assigned a value but never read File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 109
+Warning (10036): Verilog HDL or VHDL warning at de0_lite.vhd(110): object "m_ulaop" assigned a value but never read File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 110
+Warning (10036): Verilog HDL or VHDL warning at de0_lite.vhd(111): object "m_ula_equal" assigned a value but never read File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 111
+Warning (10036): Verilog HDL or VHDL warning at de0_lite.vhd(112): object "m_ula_less" assigned a value but never read File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 112
+Warning (10036): Verilog HDL or VHDL warning at de0_lite.vhd(113): object "m_mux_d_sel" assigned a value but never read File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 113
+Warning (10036): Verilog HDL or VHDL warning at de0_lite.vhd(114): object "m_mux_e_sel" assigned a value but never read File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 114
+Warning (10036): Verilog HDL or VHDL warning at de0_lite.vhd(115): object "m_mux_r_sel" assigned a value but never read File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 115
+Warning (10036): Verilog HDL or VHDL warning at de0_lite.vhd(116): object "m_mux_c_sel" assigned a value but never read File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 116
+Warning (10036): Verilog HDL or VHDL warning at de0_lite.vhd(117): object "m_mux_a_sel" assigned a value but never read File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 117
+Warning (10036): Verilog HDL or VHDL warning at de0_lite.vhd(118): object "m_halt_sig" assigned a value but never read File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 118
+Warning (10036): Verilog HDL or VHDL warning at de0_lite.vhd(119): object "m_outa_reg" assigned a value but never read File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 119
+Warning (10036): Verilog HDL or VHDL warning at de0_lite.vhd(120): object "m_out_ula" assigned a value but never read File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 120
+Warning (10036): Verilog HDL or VHDL warning at de0_lite.vhd(121): object "m_p_w_add" assigned a value but never read File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 121
+Warning (10036): Verilog HDL or VHDL warning at de0_lite.vhd(122): object "m_p_w_data" assigned a value but never read File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 122
+Info (12128): Elaborating entity "mips" for hierarchy "mips:log" File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 130
+Info (12128): Elaborating entity "pc" for hierarchy "mips:log|pc:pc_0" File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/mips.vhd Line: 266
+Info (12128): Elaborating entity "rom" for hierarchy "mips:log|rom:rom_0" File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/mips.vhd Line: 276
+Info (12128): Elaborating entity "ir" for hierarchy "mips:log|ir:ir_0" File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/mips.vhd Line: 284
+Info (12128): Elaborating entity "banco_reg_32_generate" for hierarchy "mips:log|banco_reg_32_generate:br_0" File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/mips.vhd Line: 300
+Info (12128): Elaborating entity "reg32" for hierarchy "mips:log|banco_reg_32_generate:br_0|reg32:\reg:0:reg" File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/banco_reg_32_generate.vhd Line: 53
+Info (12128): Elaborating entity "ula" for hierarchy "mips:log|ula:ula_0" File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/mips.vhd Line: 313
+Info (12128): Elaborating entity "mux" for hierarchy "mips:log|mux:mux_d" File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/mips.vhd Line: 325
+Info (12128): Elaborating entity "mux_r" for hierarchy "mips:log|mux_r:r_mux" File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/mips.vhd Line: 357
+Info (12128): Elaborating entity "extensao_a" for hierarchy "mips:log|extensao_a:ex_a" File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/mips.vhd Line: 365
+Info (12128): Elaborating entity "extensao_b" for hierarchy "mips:log|extensao_b:ex_b" File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/mips.vhd Line: 372
+Info (12128): Elaborating entity "concat" for hierarchy "mips:log|concat:con" File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/mips.vhd Line: 378
+Info (12128): Elaborating entity "branch" for hierarchy "mips:log|branch:bc" File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/mips.vhd Line: 385
+Info (12128): Elaborating entity "fsm" for hierarchy "mips:log|fsm:machine" File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/mips.vhd Line: 391
+Info (12128): Elaborating entity "add_ram" for hierarchy "mips:log|add_ram:add_0" File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/mips.vhd Line: 415
+Info (12128): Elaborating entity "ram_mips" for hierarchy "mips:log|ram_mips:ram_0" File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/mips.vhd Line: 422
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276007): RAM logic "mips:log|ram_mips:ram_0|memoria" is uninferred due to asynchronous read logic File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/ram_mips.vhd Line: 24
+Warning (13039): The following bidirectional pins have no drivers
+    Warning (13040): bidirectional pin "DRAM_DQ[0]" has no driver File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 25
+    Warning (13040): bidirectional pin "DRAM_DQ[1]" has no driver File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 25
+    Warning (13040): bidirectional pin "DRAM_DQ[2]" has no driver File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 25
+    Warning (13040): bidirectional pin "DRAM_DQ[3]" has no driver File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 25
+    Warning (13040): bidirectional pin "DRAM_DQ[4]" has no driver File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 25
+    Warning (13040): bidirectional pin "DRAM_DQ[5]" has no driver File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 25
+    Warning (13040): bidirectional pin "DRAM_DQ[6]" has no driver File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 25
+    Warning (13040): bidirectional pin "DRAM_DQ[7]" has no driver File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 25
+    Warning (13040): bidirectional pin "DRAM_DQ[8]" has no driver File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 25
+    Warning (13040): bidirectional pin "DRAM_DQ[9]" has no driver File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 25
+    Warning (13040): bidirectional pin "DRAM_DQ[10]" has no driver File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 25
+    Warning (13040): bidirectional pin "DRAM_DQ[11]" has no driver File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 25
+    Warning (13040): bidirectional pin "DRAM_DQ[12]" has no driver File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 25
+    Warning (13040): bidirectional pin "DRAM_DQ[13]" has no driver File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 25
+    Warning (13040): bidirectional pin "DRAM_DQ[14]" has no driver File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 25
+    Warning (13040): bidirectional pin "DRAM_DQ[15]" has no driver File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 25
+    Warning (13040): bidirectional pin "GSENSOR_SDI" has no driver File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 59
+    Warning (13040): bidirectional pin "GSENSOR_SDO" has no driver File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 60
+    Warning (13040): bidirectional pin "ARDUINO_IO[0]" has no driver File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 63
+    Warning (13040): bidirectional pin "ARDUINO_IO[1]" has no driver File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 63
+    Warning (13040): bidirectional pin "ARDUINO_IO[2]" has no driver File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 63
+    Warning (13040): bidirectional pin "ARDUINO_IO[3]" has no driver File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 63
+    Warning (13040): bidirectional pin "ARDUINO_IO[4]" has no driver File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 63
+    Warning (13040): bidirectional pin "ARDUINO_IO[5]" has no driver File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 63
+    Warning (13040): bidirectional pin "ARDUINO_IO[6]" has no driver File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 63
+    Warning (13040): bidirectional pin "ARDUINO_IO[7]" has no driver File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 63
+    Warning (13040): bidirectional pin "ARDUINO_IO[8]" has no driver File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 63
+    Warning (13040): bidirectional pin "ARDUINO_IO[9]" has no driver File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 63
+    Warning (13040): bidirectional pin "ARDUINO_IO[10]" has no driver File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 63
+    Warning (13040): bidirectional pin "ARDUINO_IO[11]" has no driver File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 63
+    Warning (13040): bidirectional pin "ARDUINO_IO[12]" has no driver File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 63
+    Warning (13040): bidirectional pin "ARDUINO_IO[13]" has no driver File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 63
+    Warning (13040): bidirectional pin "ARDUINO_IO[14]" has no driver File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 63
+    Warning (13040): bidirectional pin "ARDUINO_IO[15]" has no driver File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 63
+    Warning (13040): bidirectional pin "ARDUINO_RESET_N" has no driver File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 64
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "DRAM_ADDR[0]" is stuck at GND File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 19
+    Warning (13410): Pin "DRAM_ADDR[1]" is stuck at GND File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 19
+    Warning (13410): Pin "DRAM_ADDR[2]" is stuck at GND File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 19
+    Warning (13410): Pin "DRAM_ADDR[3]" is stuck at GND File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 19
+    Warning (13410): Pin "DRAM_ADDR[4]" is stuck at GND File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 19
+    Warning (13410): Pin "DRAM_ADDR[5]" is stuck at GND File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 19
+    Warning (13410): Pin "DRAM_ADDR[6]" is stuck at GND File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 19
+    Warning (13410): Pin "DRAM_ADDR[7]" is stuck at GND File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 19
+    Warning (13410): Pin "DRAM_ADDR[8]" is stuck at GND File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 19
+    Warning (13410): Pin "DRAM_ADDR[9]" is stuck at GND File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 19
+    Warning (13410): Pin "DRAM_ADDR[10]" is stuck at GND File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 19
+    Warning (13410): Pin "DRAM_ADDR[11]" is stuck at GND File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 19
+    Warning (13410): Pin "DRAM_ADDR[12]" is stuck at GND File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 19
+    Warning (13410): Pin "DRAM_BA[0]" is stuck at GND File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 20
+    Warning (13410): Pin "DRAM_BA[1]" is stuck at GND File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 20
+    Warning (13410): Pin "DRAM_CAS_N" is stuck at GND File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 21
+    Warning (13410): Pin "DRAM_CKE" is stuck at GND File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 22
+    Warning (13410): Pin "DRAM_CLK" is stuck at GND File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 23
+    Warning (13410): Pin "DRAM_CS_N" is stuck at GND File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 24
+    Warning (13410): Pin "DRAM_LDQM" is stuck at GND File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 26
+    Warning (13410): Pin "DRAM_RAS_N" is stuck at GND File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 27
+    Warning (13410): Pin "DRAM_UDQM" is stuck at GND File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 28
+    Warning (13410): Pin "DRAM_WE_N" is stuck at GND File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 29
+    Warning (13410): Pin "HEX0[0]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 32
+    Warning (13410): Pin "HEX0[1]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 32
+    Warning (13410): Pin "HEX0[2]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 32
+    Warning (13410): Pin "HEX0[3]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 32
+    Warning (13410): Pin "HEX0[4]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 32
+    Warning (13410): Pin "HEX0[5]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 32
+    Warning (13410): Pin "HEX0[6]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 32
+    Warning (13410): Pin "HEX0[7]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 32
+    Warning (13410): Pin "HEX1[0]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 33
+    Warning (13410): Pin "HEX1[1]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 33
+    Warning (13410): Pin "HEX1[2]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 33
+    Warning (13410): Pin "HEX1[3]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 33
+    Warning (13410): Pin "HEX1[4]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 33
+    Warning (13410): Pin "HEX1[5]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 33
+    Warning (13410): Pin "HEX1[6]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 33
+    Warning (13410): Pin "HEX1[7]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 33
+    Warning (13410): Pin "HEX2[0]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 34
+    Warning (13410): Pin "HEX2[1]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 34
+    Warning (13410): Pin "HEX2[2]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 34
+    Warning (13410): Pin "HEX2[3]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 34
+    Warning (13410): Pin "HEX2[4]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 34
+    Warning (13410): Pin "HEX2[5]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 34
+    Warning (13410): Pin "HEX2[6]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 34
+    Warning (13410): Pin "HEX2[7]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 34
+    Warning (13410): Pin "HEX3[0]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 35
+    Warning (13410): Pin "HEX3[1]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 35
+    Warning (13410): Pin "HEX3[2]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 35
+    Warning (13410): Pin "HEX3[3]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 35
+    Warning (13410): Pin "HEX3[4]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 35
+    Warning (13410): Pin "HEX3[5]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 35
+    Warning (13410): Pin "HEX3[6]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 35
+    Warning (13410): Pin "HEX3[7]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 35
+    Warning (13410): Pin "HEX4[0]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 36
+    Warning (13410): Pin "HEX4[1]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 36
+    Warning (13410): Pin "HEX4[2]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 36
+    Warning (13410): Pin "HEX4[3]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 36
+    Warning (13410): Pin "HEX4[4]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 36
+    Warning (13410): Pin "HEX4[5]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 36
+    Warning (13410): Pin "HEX4[6]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 36
+    Warning (13410): Pin "HEX4[7]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 36
+    Warning (13410): Pin "HEX5[0]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 37
+    Warning (13410): Pin "HEX5[1]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 37
+    Warning (13410): Pin "HEX5[2]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 37
+    Warning (13410): Pin "HEX5[3]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 37
+    Warning (13410): Pin "HEX5[4]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 37
+    Warning (13410): Pin "HEX5[5]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 37
+    Warning (13410): Pin "HEX5[6]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 37
+    Warning (13410): Pin "HEX5[7]" is stuck at VCC File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 37
+    Warning (13410): Pin "VGA_B[0]" is stuck at GND File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 49
+    Warning (13410): Pin "VGA_B[1]" is stuck at GND File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 49
+    Warning (13410): Pin "VGA_B[2]" is stuck at GND File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 49
+    Warning (13410): Pin "VGA_B[3]" is stuck at GND File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 49
+    Warning (13410): Pin "VGA_G[0]" is stuck at GND File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 50
+    Warning (13410): Pin "VGA_G[1]" is stuck at GND File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 50
+    Warning (13410): Pin "VGA_G[2]" is stuck at GND File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 50
+    Warning (13410): Pin "VGA_G[3]" is stuck at GND File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 50
+    Warning (13410): Pin "VGA_HS" is stuck at GND File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 51
+    Warning (13410): Pin "VGA_R[0]" is stuck at GND File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 52
+    Warning (13410): Pin "VGA_R[1]" is stuck at GND File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 52
+    Warning (13410): Pin "VGA_R[2]" is stuck at GND File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 52
+    Warning (13410): Pin "VGA_R[3]" is stuck at GND File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 52
+    Warning (13410): Pin "VGA_VS" is stuck at GND File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 53
+    Warning (13410): Pin "GSENSOR_CS_N" is stuck at GND File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 56
+    Warning (13410): Pin "GSENSOR_SCLK" is stuck at GND File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 58
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 928 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 15 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "ADC_CLK_10" File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 14
+    Warning (15610): No output dependent on input pin "MAX10_CLK2_50" File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 16
+    Warning (15610): No output dependent on input pin "KEY[0]" File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 40
+    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 40
+    Warning (15610): No output dependent on input pin "GSENSOR_INT[1]" File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 57
+    Warning (15610): No output dependent on input pin "GSENSOR_INT[2]" File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 57
+    Warning (15610): No output dependent on input pin "SW[0]" File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 46
+    Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 46
+    Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 46
+    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 46
+    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 46
+    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 46
+    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 46
+    Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 46
+    Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/Arihe/Desktop/Trabalho final de PLD/Projeto_final/sintese/de0_lite.vhd Line: 46
+Info (21057): Implemented 1075 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 17 input pins
+    Info (21059): Implemented 97 output pins
+    Info (21060): Implemented 35 bidirectional pins
+    Info (21061): Implemented 926 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 179 warnings
+    Info: Peak virtual memory: 4823 megabytes
+    Info: Processing ended: Sun Dec 16 19:16:34 2018
+    Info: Elapsed time: 00:00:21
+    Info: Total CPU time (on all processors): 00:00:39
+
+

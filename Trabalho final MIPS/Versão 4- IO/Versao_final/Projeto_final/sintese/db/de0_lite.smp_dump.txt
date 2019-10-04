@@ -1,0 +1,20 @@
+
+State Machine - |de0_lite|mips:log|fsm:machine|state
+Name state.RETURN_STORE state.STORE state.RETURN_LOAD state.LOAD state.JUMP state.RETURN_ZERO state.BRANCH_ZERO state.RETURN_EQUAL state.BRANCH_EQUAL state.HALT state.R_MEN state.FUNC_R state.LI_MEN state.LI state.DECODIFICADOR state.RI state.FETCH 
+state.FETCH 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+state.RI 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+state.DECODIFICADOR 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+state.LI 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+state.LI_MEN 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+state.FUNC_R 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+state.R_MEN 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+state.HALT 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+state.BRANCH_EQUAL 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+state.RETURN_EQUAL 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+state.BRANCH_ZERO 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+state.RETURN_ZERO 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+state.JUMP 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+state.LOAD 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.RETURN_LOAD 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.STORE 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.RETURN_STORE 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
